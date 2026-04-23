@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Manrope:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-artistic-bg: #0F0F0F;
+  --color-artistic-gold: #C5A059;
+  --color-artistic-text: #F5F5F5;
+  
+  --animate-subtle-fade: fade-in 0.8s ease-out forwards;
+}
+
+@layer base {
+  body {
+    @apply bg-artistic-bg text-artistic-text antialiased font-sans selection:bg-artistic-gold selection:text-artistic-bg;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-tighter uppercase;
+  }
+}
+
+@layer components {
+  .artistic-border {
+    @apply border border-white/10;
+  }
+  
+  .artistic-card {
+    @apply bg-white/[0.02] border border-white/5 rounded-none transition-all duration-500;
+  }
+  
+  .artistic-card:hover {
+    @apply border-artistic-gold/40 bg-white/[0.04];
+  }
+
+  .nav-rail {
+    @apply border-r border-white/10;
+  }
+
+  .btn-artistic {
+    @apply px-6 py-2 border border-white/20 rounded-full text-[11px] uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300;
+  }
+
+  .accent-gold {
+    @apply text-artistic-gold font-serif italic;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
